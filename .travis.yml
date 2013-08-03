@@ -3,6 +3,7 @@ language: cpp
 compiler: gcc
 
 before_install:
+   - set
    - uname -a
    - cat /etc/issue
    - sudo apt-get update -qq
