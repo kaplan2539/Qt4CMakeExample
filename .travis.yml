@@ -2,12 +2,16 @@ language: cpp
 
 compiler: gcc
 
+env:
+   -global:
+      -secure: "0N1rbb8ke68cf/Q2opC51nxhIfMsR7UCWOPkMJZKwWGxaT8zvBGOcUlK5FtqxE6vN9MwqdgDbe1LPDZDi/LyU3s9KhzU8ntSt9Uf18hoG+kwVqFDlW4MMd2e3oZEiq4dhfML6p4rKy601GKuew/KgIHCKRSSG2IkUNko0NAX8BE="
+
 before_install:
    - set
    - uname -a
    - cat /etc/issue
    - pwd
-   - find $HOME
+   - echo "SUPER_SECRET=$SUPER_SECRET"
    - sudo apt-get update -qq
    - sudo apt-get install -qq cmake sqlite3 qt4-dev-tools
 
