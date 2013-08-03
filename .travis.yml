@@ -5,22 +5,29 @@ compiler: gcc
 env:
    -global:
       -secure: "0N1rbb8ke68cf/Q2opC51nxhIfMsR7UCWOPkMJZKwWGxaT8zvBGOcUlK5FtqxE6vN9MwqdgDbe1LPDZDi/LyU3s9KhzU8ntSt9Uf18hoG+kwVqFDlW4MMd2e3oZEiq4dhfML6p4rKy601GKuew/KgIHCKRSSG2IkUNko0NAX8BE="
+      -TIMEOUT=1000
 
 before_install:
-   - set
    - uname -a
    - cat /etc/issue
    - pwd
    - echo "SUPER_SECRET=$SUPER_SECRET"
+   - echo "TIMEOUT=$TIMEOUT"
    - sudo apt-get update -qq
    - sudo apt-get install -qq cmake sqlite3 qt4-dev-tools
 
 before_script:
+   - echo "SUPER_SECRET=$SUPER_SECRET"
+   - echo "TIMEOUT=$TIMEOUT"
    - mkdir build
    - cd build
    - cmake ..
 
 script: make
+
+after_script:
+   - echo "SUPER_SECRET=$SUPER_SECRET"
+   - echo "TIMEOUT=$TIMEOUT"
 
 notifications:
    email:
