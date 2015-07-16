@@ -8,9 +8,9 @@ env:
       - TIMEOUT=1000
 
 before_install:
+   - pwd
    - uname -a
    - cat /etc/issue
-   - pwd
    - echo "SUPER_SECRET=$SUPER_SECRET" >test.secret
    - cat test.secret
    - echo "TIMEOUT=$TIMEOUT"
